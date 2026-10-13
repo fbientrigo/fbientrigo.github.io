@@ -1,0 +1,12 @@
+{
+  "id": "root-kata",
+  "title": { "en": "ROOT-kata", "es": "ROOT-kata" },
+  "description": { "en": "A prototype for learning ROOT through short exercises, with a command-line runner, grading support, notebooks and a small web interface. Workflow and documentation are present; ROOT-backed exercises require ROOT to run.", "es": "Prototipo para aprender ROOT mediante ejercicios breves, con ejecución por línea de comandos, corrección, cuadernos y una interfaz web pequeña. Incluye flujo de trabajo y documentación; los ejercicios que usan ROOT requieren ROOT." },
+  "contribution": { "en": "Public commit history records work under this account; exact personal role and teaching-material authorship are pending confirmation.", "es": "El historial público de commits registra trabajo bajo esta cuenta; el rol personal exacto y la autoría de materiales docentes están pendientes de confirmación." },
+  "origin": { "en": "Not a GitHub fork. Independent ROOT learning prototype; unaffiliated with CERN.", "es": "No es un fork de GitHub. Prototipo independiente de aprendizaje de ROOT, sin afiliación al CERN." },
+  "status": "educational",
+  "statusText": { "en": "Educational project", "es": "Proyecto educativo" },
+  "tags": ["ROOT", "education", "scientific software"],
+  "repositoryUrl": "https://github.com/fbientrigo/root-kata",
+  "featuredOrder": 2
+}

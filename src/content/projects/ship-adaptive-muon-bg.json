@@ -1,0 +1,12 @@
+{
+  "id": "ship-adaptive-muon-bg",
+  "title": { "en": "Adaptive muon-background simulation for SHiP", "es": "Simulación adaptativa del fondo de muones para SHiP" },
+  "description": { "en": "Early thesis-development code for controlled numerical benchmarks of candidate adaptive samplers, including Gaussian, Gaussian-mixture and affine-coupling flow models. The repository does not report validated SHiP background rates or production FairShip integration.", "es": "Código en desarrollo temprano de tesis para benchmarks numéricos controlados de muestreadores adaptativos, incluidos modelos gaussianos, mezclas gaussianas y flujos de acoplamiento afín. El repositorio no reporta tasas de fondo SHiP validadas ni integración de producción con FairShip." },
+  "contribution": { "en": "Public commit history records work under this account; the exact personal role and division of work are pending confirmation.", "es": "El historial público de commits registra trabajo bajo esta cuenta; el rol personal exacto y la división del trabajo están pendientes de confirmación." },
+  "origin": { "en": "This repository is not a GitHub fork. Its README identifies the legacy NFlow source by mferril; attribution: mferril/NFlow.", "es": "Este repositorio no es un fork de GitHub. Su README identifica como fuente heredada NFlow de mferril; atribución: mferril/NFlow." },
+  "status": "prototype",
+  "statusText": { "en": "Early thesis development; controlled benchmarks", "es": "Desarrollo temprano de tesis; benchmarks controlados" },
+  "tags": ["SHiP", "muon backgrounds", "simulation", "normalizing flows", "FairShip", "GEANT4"],
+  "repositoryUrl": "https://github.com/fbientrigo/ship_adaptive_muon_bg",
+  "featuredOrder": 1
+}
