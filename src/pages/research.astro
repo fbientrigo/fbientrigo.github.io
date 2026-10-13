@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'; import { copy, sitePath } from '../data/site';
+const locale='en'; const t=copy[locale];
+---
+<BaseLayout locale={locale} page="research" title={t.research} description={t.researchText}>
+  <article class="wrap article-page"><p class="eyebrow">RESEARCH NOTE / 01</p><h1>{t.research}</h1><p class="article-lede">{t.researchText}</p>
+    <div class="article-columns"><div>{t.researchSections.map((section)=><section><h2>{section.heading}</h2>{section.paragraphs.map((paragraph)=><p>{paragraph}</p>)}</section>)}</div><aside class="margin-note"><span class="note-label">{t.scopeLabel}</span><p>{t.scopeText}</p><span class="mono">{t.scopeTag}</span></aside></div>
+    <figure class="workflow"><figcaption><span class="section-number">FIG 01</span><span>{t.diagramTitle}</span></figcaption><ol>{t.diagram.map((step,index)=><li><span class="workflow-index">0{index+1}</span><span>{step}</span></li>)}</ol><p>{t.diagramNote}</p></figure><a class="arrow-link" href={sitePath('projects', locale)}>Project notes <span aria-hidden="true">→</span></a>
+  </article>
+</BaseLayout>

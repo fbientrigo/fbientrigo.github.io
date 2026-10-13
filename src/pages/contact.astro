@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'; import { copy, profile } from '../data/site';
+const locale='en'; const t=copy[locale];
+---
+<BaseLayout locale={locale} page="contact" title={t.contact} description={t.contactText}><section class="wrap article-page contact-page"><p class="eyebrow">CORRESPONDENCE / 01</p><h1>{t.contact}</h1><p class="article-lede">{t.contactText}</p><div class="contact-links"><a href={profile.github} target="_blank" rel="noreferrer"><span>01 / CODE</span><strong>GitHub</strong><span>github.com/fbientrigo ↗</span></a><a href={profile.orcid} target="_blank" rel="noreferrer"><span>02 / RESEARCH ID</span><strong>ORCID</strong><span>0009-0002-7441-441X ↗</span></a></div></section></BaseLayout>

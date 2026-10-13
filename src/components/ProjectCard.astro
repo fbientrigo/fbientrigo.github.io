@@ -1,0 +1,15 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { copy, type Locale } from '../data/site';
+const { project, locale } = Astro.props as { project: CollectionEntry<'projects'>; locale: Locale };
+const t = copy[locale];
+const details = project.data;
+---
+<article class="project-card">
+  <div class="project-topline"><span class="project-index">{details.featuredOrder != null ? String(details.featuredOrder).padStart(2, '0') : '—'}</span><span class="status"><span class="status-dot"></span>{details.statusText[locale]}</span></div>
+  <h3>{details.title[locale]}</h3>
+  <p>{details.description[locale]}</p>
+  <div class="tag-list">{details.tags.map((tag) => <span>{tag}</span>)}</div>
+  <dl class="project-meta"><dt>{t.contribution}</dt><dd>{details.contribution[locale]}</dd><dt>{t.origin}</dt><dd>{details.origin[locale]}</dd></dl>
+  <div class="project-links"><a href={details.repositoryUrl} target="_blank" rel="noreferrer">{t.repo}<span aria-hidden="true"> ↗</span></a>{details.demoUrl && <a href={details.demoUrl} target="_blank" rel="noreferrer">{t.demo}<span aria-hidden="true"> ↗</span></a>}</div>
+</article>
