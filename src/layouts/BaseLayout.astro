@@ -15,6 +15,17 @@ const canonical = new URL(`${base}${locale === 'es' ? '/es' : ''}${suffix}`, Ast
 const alternateEn = new URL(`${base}${suffix}`, Astro.site);
 const alternateEs = new URL(`${base}/es${suffix}`, Astro.site);
 const href = (path: string) => `${base}${locale === 'es' ? '/es' : ''}/${path ? `${path}/` : ''}`;
+const fullTitle = page === 'home' ? `${profile.name} · ${profile.role[locale]}` : `${title} · ${profile.name}`;
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  url: new URL(`${base}/`, Astro.site).href,
+  jobTitle: profile.role[locale],
+  affiliation: { '@type': 'CollegeOrUniversity', name: profile.university },
+  knowsAbout: t.interests,
+  sameAs: [profile.github, profile.orcid],
+};
 ---
 <!doctype html>
 <html lang={locale}>
@@ -23,13 +34,14 @@ const href = (path: string) => `${base}${locale === 'es' ? '/es' : ''}/${path ? 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f7f8f6" />
-    <title>{title} · {profile.name}</title>
+    <title>{fullTitle}</title>
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={alternateEn} />
     <link rel="alternate" hreflang="es" href={alternateEs} />
     <link rel="alternate" hreflang="x-default" href={alternateEn} />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} · ${profile.name}`} />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={locale === 'es' ? 'es_CL' : 'en_US'} />
@@ -37,7 +49,8 @@ const href = (path: string) => `${base}${locale === 'es' ? '/es' : ''}/${path ? 
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
     <script is:inline>
       try {
         const saved = localStorage.getItem('theme');

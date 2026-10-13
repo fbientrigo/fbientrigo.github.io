@@ -35,7 +35,7 @@ for (const route of routes) {
     if (!html.includes(title)) throw new Error(`Project content missing from ${route || 'home'}`);
   }
   for (const language of ['en', 'es', 'x-default']) if (!html.includes(`hreflang="${language}"`)) throw new Error(`Missing ${language} alternate: ${route}`);
-    for (const metadata of ['property="og:title"', 'property="og:description"', 'property="og:image"', 'name="description"']) {
+    for (const metadata of ['property="og:title"', 'property="og:description"', 'property="og:image"', 'name="description"', 'type="application/ld+json"']) {
     if (!html.includes(metadata)) throw new Error(`Missing ${metadata}: ${route}`);
   }
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
