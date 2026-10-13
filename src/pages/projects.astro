@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'; import ProjectCard from '../components/ProjectCard.astro'; import { getCollection } from 'astro:content'; import { copy } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro'; import ProjectCard from '../components/ProjectCard.astro'; import ProjectFilter from '../components/ProjectFilter.astro'; import { getCollection } from 'astro:content'; import { copy } from '../data/site';
 const locale='en'; const t=copy[locale]; const projects=(await getCollection('projects')).sort((a,b)=>(a.data.featuredOrder??99)-(b.data.featuredOrder??99));
 ---
-<BaseLayout locale={locale} page="projects" title={t.projects} description={t.projectsText}><section class="wrap listing-page"><p class="eyebrow">PROJECT INDEX / 01—{String(projects.length).padStart(2, '0')}</p><h1>{t.projects}</h1><p class="article-lede">{t.projectsText}</p><div class="project-grid listing-grid">{projects.map((project)=><ProjectCard project={project} locale={locale} />)}</div></section></BaseLayout>
+<BaseLayout locale={locale} page="projects" title={t.projects} description={t.projectsText}><section class="wrap listing-page"><h1>{t.projects}</h1><p class="article-lede">{t.projectsText}</p><ProjectFilter projects={projects} locale={locale} /><div class="project-grid listing-grid">{projects.map((project)=><ProjectCard project={project} locale={locale} />)}</div></section></BaseLayout>
