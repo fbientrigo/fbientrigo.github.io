@@ -7,7 +7,7 @@ const t = copy[locale];
 const details = project.data;
 ---
 <article class="project-card" data-status={details.status}>
-  <div class="project-topline"><ProjectGlyph id={project.id} /><span class="project-index">{details.featuredOrder != null ? String(details.featuredOrder).padStart(2, '0') : '—'}</span><span class="status"><span class="status-dot" data-status={details.status}></span>{details.statusText[locale]}</span></div>
+  <div class="project-topline"><ProjectGlyph glyph={details.glyph} /><span class="project-index">{details.featuredOrder != null ? String(details.featuredOrder).padStart(2, '0') : '—'}</span><span class="status"><span class="status-dot" data-status={details.status}></span>{details.statusText[locale]}</span></div>
   <h3>{details.title[locale]}</h3>
   <p>{details.description[locale]}</p>
   <div class="tag-list">{details.tags.map((tag) => <span>{tag}</span>)}</div>

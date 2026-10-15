@@ -1,12 +1,11 @@
 {
-  "id": "root-rag",
   "title": { "en": "ROOT-rag", "es": "ROOT-rag" },
   "description": { "en": "A local CLI prototype that fetches ROOT reference material, indexes it in SQLite FTS5 and searches source files with file and line references. It implements lexical retrieval; production readiness and answer quality have not been established.", "es": "Prototipo CLI local que obtiene material de referencia de ROOT, lo indexa en SQLite FTS5 y busca archivos fuente con referencias de archivo y línea. Implementa recuperación léxica; no se han establecido preparación para producción ni calidad de respuestas." },
   "contribution": { "en": "Public commit history records work under this account; exact personal role is pending confirmation.", "es": "El historial público de commits registra trabajo bajo esta cuenta; el rol personal exacto está pendiente de confirmación." },
   "origin": { "en": "Not a GitHub fork. Repository describes a local software prototype; prebuilt indices and evaluation metrics are not claimed.", "es": "No es un fork de GitHub. El repositorio describe un prototipo de software local; no se afirman índices preconstruidos ni métricas de evaluación." },
+  "glyph": "network",
   "status": "prototype",
   "statusText": { "en": "Local retrieval prototype", "es": "Prototipo de recuperación local" },
   "tags": ["ROOT", "retrieval", "SQLite", "scientific software"],
-  "repositoryUrl": "https://github.com/fbientrigo/root-rag",
-  "featuredOrder": 4
+  "repositoryUrl": "https://github.com/fbientrigo/root-rag"
 }
