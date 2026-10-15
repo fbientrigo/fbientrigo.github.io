@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro check && astro build && node scripts/verify-build.mjs",
     "check": "astro check && node scripts/verify-content.mjs",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "preview:capture": "node scripts/capture-previews.mjs"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.2.6",
