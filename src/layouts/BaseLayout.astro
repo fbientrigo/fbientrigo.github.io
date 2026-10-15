@@ -5,7 +5,7 @@ import '@fontsource/source-sans-3/600.css';
 import '@fontsource/source-sans-3/700.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '../styles/global.css';
-import { copy, profile, type Locale } from '../data/site';
+import { copy, pages, profile, sitePath, type Locale } from '../data/site';
 
 const { locale, page, title, description } = Astro.props as { locale: Locale; page: string; title: string; description: string };
 const t = copy[locale];
@@ -14,7 +14,6 @@ const suffix = page === 'home' ? '/' : `/${page}/`;
 const canonical = new URL(`${base}${locale === 'es' ? '/es' : ''}${suffix}`, Astro.site);
 const alternateEn = new URL(`${base}${suffix}`, Astro.site);
 const alternateEs = new URL(`${base}/es${suffix}`, Astro.site);
-const href = (path: string) => `${base}${locale === 'es' ? '/es' : ''}/${path ? `${path}/` : ''}`;
 const fullTitle = page === 'home' ? `${profile.name} · ${profile.role[locale]}` : `${title} · ${profile.name}`;
 const person = {
   '@context': 'https://schema.org',
@@ -33,7 +32,8 @@ const person = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f7f8f6" />
+    <meta name="theme-color" content="#f7f8f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#142329" media="(prefers-color-scheme: dark)" />
     <title>{fullTitle}</title>
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={alternateEn} />
@@ -51,6 +51,7 @@ const person = {
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(person)} />
+    <noscript><style>.theme-toggle{display:none}</style></noscript>
     <script is:inline>
       try {
         const saved = localStorage.getItem('theme');
@@ -63,9 +64,9 @@ const person = {
   <body>
     <a class="skip-link" href="#main">{t.skip}</a>
     <header class="site-header">
-      <a class="wordmark" href={href('')} aria-label={`${profile.name} — ${t.nav.home}`}><span class="wordmark-mark">FT</span><span>{profile.name}</span></a>
-      <nav aria-label={locale === 'en' ? 'Main navigation' : 'Navegación principal'}>
-        <a href={href('')} aria-current={page === 'home' ? 'page' : undefined}>{t.nav.home}</a><a href={href('research')} aria-current={page === 'research' ? 'page' : undefined}>{t.nav.research}</a><a href={href('projects')} aria-current={page === 'projects' ? 'page' : undefined}>{t.nav.projects}</a><a href={href('cv')} aria-current={page === 'cv' ? 'page' : undefined}>{t.nav.cv}</a><a href={href('contact')} aria-current={page === 'contact' ? 'page' : undefined}>{t.nav.contact}</a>
+      <a class="wordmark" href={sitePath('', locale)} aria-label={`${profile.name} — ${t.nav.home}`}><span class="wordmark-mark">FT</span><span>{profile.name}</span></a>
+      <nav aria-label={t.navLabel}>
+        {pages.map((path) => <a href={sitePath(path, locale)} aria-current={(path || 'home') === page ? 'page' : undefined}>{t.nav[path || 'home']}</a>)}
       </nav>
       <div class="header-tools"><a class="language-link" href={locale === 'en' ? alternateEs.pathname : alternateEn.pathname} lang={locale === 'en' ? 'es' : 'en'}>{t.language}</a><button class="theme-toggle" type="button" aria-label={t.theme} title={t.theme} aria-pressed="false"><span aria-hidden="true">◐</span></button></div>
     </header>

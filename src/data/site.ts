@@ -17,6 +17,8 @@ export const profile = {
   orcid: 'https://orcid.org/0009-0002-7441-441X',
 };
 
+export const pages = ['', 'research', 'projects', 'cv', 'contact'] as const;
+
 export const sitePath = (path: string, locale: 'en' | 'es') => {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   return `${base}${locale === 'es' ? '/es' : ''}/${path ? `${path}/` : ''}`;
@@ -24,6 +26,7 @@ export const sitePath = (path: string, locale: 'en' | 'es') => {
 
 export const copy = {
   en: {
+    navLabel: 'Main navigation',
     nav: { home: 'Home', research: 'Research', projects: 'Projects', cv: 'CV', contact: 'Contact' },
     skip: 'Skip to content', language: 'Español', theme: 'Toggle dark mode',
     intro: 'I work on muon-induced backgrounds for SHiP, between detector simulation and computational methods, and on checking carefully that a simulation can be trusted for experimental physics.',
@@ -74,9 +77,7 @@ export const copy = {
     cvLink: 'Read the academic profile',
     contactText: 'For academic correspondence, research exchange or questions about my CERN doctoral application, use the public profiles below.',
     contactLink: 'GitHub · ORCID', codeLabel: 'Code', idLabel: 'Research ID',
-    repo: 'Repository', demo: 'Verified demo', status: 'Status', contribution: 'Contribution', origin: 'Origin and attribution',
-    profileHeading: 'Academic profile', profileBody: 'Doctoral researcher in experimental particle physics, formally associated with Universidad de Valparaíso through an inter-university doctoral programme, with scientific supervision at Universidad de La Serena.',
-    focusHeading: 'Research focus', skillsHeading: 'Methods and tools', skills: ['Muon-background simulation', 'FairShip and GEANT4', 'Normalizing flows', 'BSM phenomenology', 'FPGA instrumentation', 'Educational scientific software'],
+    repo: 'Repository', demo: 'Verified demo', contribution: 'Contribution', origin: 'Origin and attribution',
     cvMissing: 'A formal PDF CV will follow once institutional certificates and committee dates are confirmed. My active research records are linked through ORCID.',
     cvSections: [
       {
@@ -129,6 +130,7 @@ export const copy = {
     footer: 'Research notes · Last content review: October 2026',
   },
   es: {
+    navLabel: 'Navegación principal',
     nav: { home: 'Inicio', research: 'Investigación', projects: 'Proyectos', cv: 'Perfil', contact: 'Contacto' },
     skip: 'Saltar al contenido', language: 'English', theme: 'Cambiar modo oscuro',
     intro: 'Trabajo en fondos inducidos por muones para SHiP, entre la simulación de detectores y los métodos computacionales, y en comprobar con cuidado que una simulación sirva para la física experimental.',
@@ -179,9 +181,7 @@ export const copy = {
     cvLink: 'Leer el perfil académico',
     contactText: 'Para correspondencia académica, intercambio científico o consultas sobre mi postulación doctoral al CERN, usa los perfiles públicos de abajo.',
     contactLink: 'GitHub · ORCID', codeLabel: 'Código', idLabel: 'Identificador de investigación',
-    repo: 'Repositorio', demo: 'Demo verificada', status: 'Estado', contribution: 'Contribución', origin: 'Origen y atribución',
-    profileHeading: 'Perfil académico', profileBody: 'Investigador doctoral en física experimental de partículas, con asociación formal a la Universidad de Valparaíso mediante un programa doctoral interuniversitario y supervisión científica en la Universidad de La Serena.',
-    focusHeading: 'Líneas de investigación', skillsHeading: 'Métodos y herramientas', skills: ['Simulación de fondos de muones', 'FairShip y GEANT4', 'Flujos normalizantes', 'Fenomenología BSM', 'Instrumentación FPGA', 'Software científico educativo'],
+    repo: 'Repositorio', demo: 'Demo verificada', contribution: 'Contribución', origin: 'Origen y atribución',
     cvMissing: 'El CV formal en PDF llegará cuando estén confirmados los certificados institucionales y las fechas de comisión. Mis registros de investigación activos están enlazados vía ORCID.',
     cvSections: [
       {

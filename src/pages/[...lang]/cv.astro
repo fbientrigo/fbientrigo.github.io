@@ -1,7 +1,8 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { copy, type CvSection } from '../data/site';
-const locale = 'en';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { copy, type CvSection, type Locale } from '../../data/site';
+export const getStaticPaths = () => [{ params: { lang: undefined } }, { params: { lang: 'es' } }];
+const locale: Locale = Astro.params.lang === 'es' ? 'es' : 'en';
 const t = copy[locale];
 const sections = t.cvSections as readonly CvSection[];
 ---
@@ -12,7 +13,7 @@ const sections = t.cvSections as readonly CvSection[];
     <div class="cv-grid">
       {sections.map((section, index) => (
         <section class="cv-block">
-          <span class="section-number">0{index + 1}</span>
+          <span class="section-number">{String(index + 1).padStart(2, '0')}</span>
           <div>
             <h2>{section.title}</h2>
             {section.lead && <p class="cv-lead">{section.lead}</p>}
