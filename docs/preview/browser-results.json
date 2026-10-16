@@ -1,0 +1,158 @@
+{
+  "checkedAt": "2026-10-12T16:34:45.677Z",
+  "pages": [
+    {
+      "url": "http://127.0.0.1:4321/web_personal/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/research/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/projects/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/cv/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/contact/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/research/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/projects/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/cv/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/contact/",
+      "width": 360,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/research/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/projects/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/cv/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/contact/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/research/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/projects/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/cv/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/contact/",
+      "width": 768,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/",
+      "width": 1440,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/research/",
+      "width": 1440,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/projects/",
+      "width": 1440,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/cv/",
+      "width": 1440,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/contact/",
+      "width": 1440,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/",
+      "width": 1440,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/research/",
+      "width": 1440,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/projects/",
+      "width": 1440,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/cv/",
+      "width": 1440,
+      "result": "pass"
+    },
+    {
+      "url": "http://127.0.0.1:4321/web_personal/es/contact/",
+      "width": 1440,
+      "result": "pass"
+    }
+  ],
+  "keyboard": "skip link, Enter/Space theme, locale equivalent-page navigation passed",
+  "themePersistence": "passed",
+  "errors": []
+}

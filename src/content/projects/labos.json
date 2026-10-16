@@ -1,9 +1,9 @@
 {
-  "id": "labos",
   "title": { "en": "labOS", "es": "labOS" },
   "description": { "en": "A Phase 0 experimental software project with a SQLite session ledger, CLI for setups and device comparisons, and optional Obsidian notes and checkpoints. Field validation has not been reported.", "es": "Proyecto experimental de software en fase 0, con registro de sesiones SQLite, CLI para comparar configuraciones e instrumentos, y notas y checkpoints opcionales para Obsidian. No se han reportado validaciones en terreno." },
   "contribution": { "en": "Public commit history records work under this account; exact personal role and any field-use contribution are pending confirmation.", "es": "El historial público de commits registra trabajo bajo esta cuenta; el rol personal exacto y cualquier contribución a su uso en terreno están pendientes de confirmación." },
   "origin": { "en": "Not a GitHub fork. Experimental Phase 0 project; field validation unconfirmed.", "es": "No es un fork de GitHub. Proyecto experimental en fase 0; validación en terreno sin confirmar." },
+  "glyph": "pulse",
   "status": "prototype",
   "statusText": { "en": "Prototype; scope under review", "es": "Prototipo; alcance en revisión" },
   "tags": ["laboratory software", "instrumentation"],

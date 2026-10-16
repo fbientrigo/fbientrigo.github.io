@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { copy, type Locale } from '../data/site';
+type Project = CollectionEntry<'projects'>;
+const { projects, locale } = Astro.props as { projects: Project[]; locale: Locale };
+const t = copy[locale];
+const counts = new Map<Project['data']['status'], number>();
+for (const { data } of projects) counts.set(data.status, (counts.get(data.status) ?? 0) + 1);
+---
+{counts.size > 1 && (
+  <div class="project-filter" role="group" aria-label={t.filterLabel} hidden>
+    <button type="button" aria-pressed="true" data-filter="all">{t.filterAll} <span>{projects.length}</span></button>
+    {[...counts].map(([status, count]) => <button type="button" aria-pressed="false" data-filter={status}>{t.statusNames[status]} <span>{count}</span></button>)}
+  </div>
+)}
+<script>
+  // Cards stay in the static HTML for crawlers and no-JS readers; the filter only hides them.
+  const bar = document.querySelector<HTMLElement>('.project-filter');
+  if (bar) {
+    const buttons = [...bar.querySelectorAll<HTMLButtonElement>('button')];
+    const cards = [...document.querySelectorAll<HTMLElement>('.project-card[data-status]')];
+    bar.hidden = false;
+    bar.addEventListener('click', (event) => {
+      const pick = (event.target as Element).closest('button');
+      if (!pick) return;
+      for (const button of buttons) button.setAttribute('aria-pressed', String(button === pick));
+      for (const card of cards) card.hidden = pick.dataset.filter !== 'all' && card.dataset.status !== pick.dataset.filter;
+    });
+  }
+</script>

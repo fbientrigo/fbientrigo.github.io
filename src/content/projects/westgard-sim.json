@@ -1,9 +1,9 @@
 {
-  "id": "westgard-sim",
   "title": { "en": "Westgard QC laboratory simulator", "es": "Simulador de control de calidad Westgard" },
   "description": { "en": "An educational simulator for laboratory quality-control scenarios, with rules and student-facing interfaces. A public deployment has not been verified.", "es": "Simulador educativo de escenarios de control de calidad de laboratorio, con reglas e interfaces para estudiantes. No se ha verificado una implementación pública." },
   "contribution": { "en": "Public commit history records work under this account; exact personal role is pending confirmation.", "es": "El historial público de commits registra trabajo bajo esta cuenta; el rol personal exacto está pendiente de confirmación." },
   "origin": { "en": "Not a GitHub fork. Educational QC simulator; no deployment or scientific validation is claimed.", "es": "No es un fork de GitHub. Simulador educativo de control de calidad; no se afirma implementación ni validación científica." },
+  "glyph": "control",
   "status": "educational",
   "statusText": { "en": "Educational project; no live demo verified", "es": "Proyecto educativo; demo activa sin verificar" },
   "tags": ["quality control", "education", "laboratory"],

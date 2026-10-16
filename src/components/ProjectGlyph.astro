@@ -1,0 +1,13 @@
+---
+// Small line icon per project, same drawing style as the hero detector.
+const { glyph } = Astro.props as { glyph: string };
+const glyphs: Record<string, string> = {
+  tracks: 'M4 16L28 6M4 16L28 14M4 16L28 24M10 4V28M18 4V28',
+  histogram: 'M4 28H28M6 28V20H10V12H14V6H18V14H22V22H26V28',
+  network: 'M6 8L16 16L6 24M26 8L16 16L26 24M6 8V24M26 8V24',
+  pulse: 'M3 18H9L12 8L16 26L19 14L21 18H29',
+  control: 'M4 9H28M4 23H28M4 17L9 13L13 19L17 12L21 16L25 14L28 18',
+  grid: 'M6 6H26V26H6ZM6 13H26M6 19H26M13 6V26M19 6V26',
+};
+---
+<svg class="project-glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d={glyphs[glyph]} /></svg>

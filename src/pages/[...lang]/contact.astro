@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { copy, profile, type Locale } from '../../data/site';
+export const getStaticPaths = () => [{ params: { lang: undefined } }, { params: { lang: 'es' } }];
+const locale: Locale = Astro.params.lang === 'es' ? 'es' : 'en';
+const t = copy[locale];
+---
+<BaseLayout locale={locale} page="contact" title={t.contact} description={t.contactText}>
+  <section class="wrap article-page contact-page">
+    <h1>{t.contact}</h1>
+    <p class="article-lede">{t.contactText}</p>
+    <div class="contact-links">
+      <a href={profile.github} target="_blank" rel="noreferrer"><span>{t.codeLabel}</span><strong>GitHub</strong><span>{profile.github.replace('https://', '')} ↗</span></a>
+      <a href={profile.orcid} target="_blank" rel="noreferrer"><span>{t.idLabel}</span><strong>ORCID</strong><span>{profile.orcid.replace('https://orcid.org/', '')} ↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

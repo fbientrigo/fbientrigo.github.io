@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { copy, type CvSection, type Locale } from '../../data/site';
+export const getStaticPaths = () => [{ params: { lang: undefined } }, { params: { lang: 'es' } }];
+const locale: Locale = Astro.params.lang === 'es' ? 'es' : 'en';
+const t = copy[locale];
+const sections = t.cvSections as readonly CvSection[];
+---
+<BaseLayout locale={locale} page="cv" title={t.cv} description={t.cvText}>
+  <article class="wrap article-page cv-page">
+    <h1>{t.cv}</h1>
+    <p class="article-lede">{t.cvText}</p>
+    <div class="cv-grid">
+      {sections.map((section, index) => (
+        <section class="cv-block">
+          <span class="section-number">{String(index + 1).padStart(2, '0')}</span>
+          <div>
+            <h2>{section.title}</h2>
+            {section.lead && <p class="cv-lead">{section.lead}</p>}
+            {section.items && (
+              <ul class="cv-list">
+                {section.items.map((item) => (
+                  <li>
+                    {item.label && <strong>{item.label}: </strong>}
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {section.paragraphs && section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </section>
+      ))}
+    </div>
+    <p class="margin-note cv-note">{t.cvMissing}</p>
+  </article>
+</BaseLayout>

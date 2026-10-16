@@ -1,9 +1,9 @@
 {
-  "id": "programacion-gpu",
   "title": { "en": "GPU programming course materials", "es": "Materiales de curso de programación GPU" },
   "description": { "en": "Course notes and examples on GPU programming in a public repository that is a fork of graemecan/programacion_gpu.", "es": "Apuntes y ejemplos de programación GPU en un repositorio público que es un fork de graemecan/programacion_gpu." },
   "contribution": { "en": "Public history includes notes and tips added under this account; scope of original contributions is pending confirmation.", "es": "El historial público incluye notas y consejos añadidos bajo esta cuenta; el alcance de las contribuciones originales está pendiente de confirmación." },
   "origin": { "en": "Fork of graemecan/programacion_gpu; course material and upstream examples retain their original attribution.", "es": "Fork de graemecan/programacion_gpu; los materiales del curso y ejemplos upstream conservan su atribución original." },
+  "glyph": "grid",
   "status": "educational",
   "statusText": { "en": "Course notes and examples", "es": "Apuntes y ejemplos de curso" },
   "tags": ["GPU", "CUDA", "education"],
