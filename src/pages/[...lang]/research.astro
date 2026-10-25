@@ -1,14 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdaptiveLoop from '../../components/AdaptiveLoop.astro';
 import { copy, sitePath, type Locale } from '../../data/site';
 export const getStaticPaths = () => [{ params: { lang: undefined } }, { params: { lang: 'es' } }];
 const locale: Locale = Astro.params.lang === 'es' ? 'es' : 'en';
 const t = copy[locale];
 ---
 <BaseLayout locale={locale} page="research" title={t.research} description={t.researchText}>
-  <article class="wrap article-page">
+  <article class="wrap article-page article-intro">
     <h1>{t.research}</h1>
     <p class="article-lede">{t.researchText}</p>
+  </article>
+  <AdaptiveLoop locale={locale} />
+  <article class="wrap article-page article-body">
     <div class="article-columns">
       <div>
         {t.researchSections.map((section) => (

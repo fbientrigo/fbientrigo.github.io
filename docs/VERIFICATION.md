@@ -1,16 +1,21 @@
 # Verification and visual preview
 
-Automated verification and responsive visual checks completed on 2026-10-12:
+Automated verification and responsive visual checks completed on 2026-10-25:
 
-- **Typecheck & Astro check**: `npm run check` passed on 23 project files with 0 errors, 0 warnings, and 0 hints.
-- **Production static build**: `npm run build` generated 10 localized static pages (5 English, 5 Spanish) plus `sitemap.xml`.
-- **Integrity test**: `node scripts/verify-build.mjs` verified localized counts, internal links, anchor targets, canonical URLs, hreflang links (including `x-default`), Open Graph metadata, assets and sitemaps for root hosting (`BASE_PATH=/` and origin `https://fbientrigo.github.io`).
-- **Responsive & theme rendering**: Evaluated via headless Chrome DevTools Protocol (`scripts/capture-previews.mjs`) testing mobile (375x812), desktop (1440x900), and dark theme preferences. Zero horizontal overflow observed (`scrollWidth === innerWidth === 375px` in mobile viewports).
+- **Astro check**: `npm run build` checked 24 project files with 0 errors, warnings, or hints.
+- **Production build and integrity**: `npm run build` generated 10 localized pages and `sitemap.xml`; `scripts/verify-build.mjs` verified internal links, anchors, canonical and alternate language URLs, SEO metadata, CSS assets, and sitemap for `https://fbientrigo.github.io/`.
+- **Browser checks and previews**: `npm run preview:capture` passed on all seven desktop (1440×900) and mobile (375×812) previews, with no runtime JavaScript errors or horizontal overflow. The research controls passed Next, Reset, normal Play, and a switch to reduced motion while playing; no more than one animation frame was pending at once.
 
 ## Previews
 
-### Desktop English Home
+### Desktop English Home (current)
 ![English home, desktop width](preview/en-home-desktop.png)
+
+### Desktop Dark Mode Home (current)
+![Dark English home, desktop width](preview/dark-home-desktop.png)
+
+### Mobile Spanish Home (current)
+![Spanish home, mobile width](preview/es-home-mobile.png)
 
 ### Desktop English CV (Academic Profile)
 ![English CV, desktop width](preview/en-cv-desktop.png)

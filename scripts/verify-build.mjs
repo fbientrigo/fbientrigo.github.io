@@ -28,9 +28,19 @@ for (const route of routes) {
     const title = allOrdered[0]?.title[route.startsWith('es') ? 'es' : 'en'];
     if (!html.includes(title)) throw new Error(`Project content missing from ${route}`);
   }
+  if (['research', 'es/research'].includes(route)) {
+    // The toy adaptive loop must show the search improving: generation 0 rarely hits, later generations hit far more often.
+    const rates = [...html.matchAll(/data-gen="\d+" data-rate="(\d+)"/g)].map((m) => Number(m[1]));
+    if (rates.length !== 6 || rates[0] < 1 || Math.min(...rates.slice(2)) < 5 * rates[0]) throw new Error(`Adaptive loop chart wrong on ${route}: ${rates}`);
+  }
   if (['', 'es'].includes(route)) {
+    const escaped = Number(html.match(/data-escapes="(\d+)"/)?.[1]);
+    if (!(escaped >= 1 && escaped <= 10)) throw new Error(`Muon shield readout wrong on ${route || 'home'}: ${escaped}`);
+    const dis = Number(html.match(/data-dis="(\d+)"/)?.[1]);
+    const dangerous = Number(html.match(/data-dangerous="(\d+)"/)?.[1]);
+    if (!(dis >= 1 && dangerous >= 1 && dangerous <= dis && dis <= 12)) throw new Error(`DIS funnel wrong on ${route || 'home'}: ${dis}/${dangerous}`);
     const expectedFeatured = Math.min(3, featured.length);
-    if (expectedFeatured < 1 || (html.match(/class="project-card"/g) ?? []).length !== expectedFeatured) throw new Error(`Expected ${expectedFeatured} featured project cards on ${route || 'home'}`);
+    if (expectedFeatured < 1 || (html.match(/class="work-item[" ]/g) ?? []).length !== expectedFeatured) throw new Error(`Expected ${expectedFeatured} featured project cards on ${route || 'home'}`);
     const title = featured[0]?.title[route === 'es' ? 'es' : 'en'];
     if (!html.includes(title)) throw new Error(`Project content missing from ${route || 'home'}`);
   }

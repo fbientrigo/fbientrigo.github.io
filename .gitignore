@@ -4,3 +4,6 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Local design prototype archive, not site source
+fabian_trigo_magnetic_ink_prototype.zip
