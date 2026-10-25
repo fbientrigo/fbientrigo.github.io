@@ -1,0 +1,51 @@
+---
+// Interactive toy of the adaptive search loop (propose → simulate → score U(x) → retrain). Schematic, not a result.
+import { copy, type Locale } from '../data/site';
+import { PER_GEN, runLoop } from '../scripts/adaptive-loop';
+const { locale } = Astro.props as { locale: Locale };
+const l = copy[locale].loop;
+const generations = runLoop();
+---
+<section class="adaptive-loop" aria-labelledby="loop-title">
+  <div class="wrap loop-header">
+    <div>
+      <p class="chapter-tag">{l.tag}</p>
+      <h2 id="loop-title" class="chapter-heading">{l.heading}</h2>
+      <p class="chapter-prose">{l.text}</p>
+    </div>
+    <div class="loop-panel">
+      <ol class="loop-steps">{l.steps.map((step, i) => <li data-step={i}><span>{i + 1}</span>{step}</li>)}</ol>
+      <div class="loop-controls no-js-hidden" role="group" aria-label={l.controlsLabel}>
+        <button type="button" data-loop="next">{l.next}</button>
+        <button type="button" data-loop="play" aria-pressed="false">{l.play}</button>
+        <button type="button" data-loop="reset">{l.reset}</button>
+      </div>
+      <p class="loop-status no-js-hidden" aria-live="polite" data-loop-status data-template={l.status}>{l.status.replace('{g}', '0').replace('{n}', String(generations[0].hits)).replace('{total}', String(PER_GEN))}</p>
+    </div>
+  </div>
+  <div class="loop-band">
+    <div class="wrap loop-grid">
+      <figure class="loop-map">
+        <canvas id="loop-canvas" class="stage-canvas" aria-hidden="true"></canvas>
+        <figcaption>{l.mapCaption}</figcaption>
+      </figure>
+      <figure class="loop-chart">
+        <figcaption>{l.chartTitle}</figcaption>
+        <ol>
+          {generations.map((g, i) => (
+            <li data-gen={i} data-rate={g.hits} style={`--rate:${g.hits / PER_GEN}`}>
+              <span class="loop-bar" aria-hidden="true"></span>
+              <span class="loop-value">{g.hits}</span>
+              <span class="loop-gen">{l.gen} {i}</span>
+            </li>
+          ))}
+        </ol>
+        <p class="stage-note">{l.note}</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<script>
+  import '../scripts/adaptive-loop-ui';
+</script>
